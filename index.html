@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velox Search</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container{
+    width:90%;
+    max-width:800px;
+    text-align:center;
+}
+
+.logo{
+    font-size:72px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.logo span{
+    color:#38bdf8;
+}
+
+.subtitle{
+    color:rgba(255,255,255,0.7);
+    margin-bottom:35px;
+    font-size:18px;
+}
+
+.search-box{
+    display:flex;
+    gap:10px;
+}
+
+.search-box input{
+    flex:1;
+    padding:18px 22px;
+    border:none;
+    border-radius:999px;
+    background:rgba(255,255,255,0.08);
+    color:white;
+    font-size:18px;
+    outline:none;
+    font-family:inherit;
+}
+
+.search-box input::placeholder{
+    color:rgba(255,255,255,0.5);
+}
+
+.search-btn{
+    border:none;
+    background:#38bdf8;
+    color:#0f172a;
+    padding:18px 28px;
+    border-radius:999px;
+    cursor:pointer;
+    font-weight:700;
+    font-family:inherit;
+}
+
+.search-btn:hover{
+    transform:scale(1.03);
+}
+
+.actions{
+    margin-top:20px;
+}
+
+.action-btn{
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.2);
+    color:white;
+    padding:10px 18px;
+    margin:5px;
+    border-radius:999px;
+    cursor:pointer;
+    font-family:inherit;
+}
+
+.action-btn:hover{
+    background:rgba(255,255,255,0.08);
+}
+
+.footer{
+    margin-top:40px;
+    color:rgba(255,255,255,0.45);
+    font-size:13px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo">
+        Ve<span>lox</span>
+    </div>
+
+    <div class="subtitle">
+        Fast. Focused. Search the web.
+    </div>
+
+    <form id="searchForm">
+        <div class="search-box">
+            <input
+                id="query"
+                type="text"
+                placeholder="Search anything..."
+                autocomplete="off"
+            >
+            <button class="search-btn" type="submit">
+                Search
+            </button>
+        </div>
+    </form>
+
+    <div class="actions">
+        <button class="action-btn" onclick="searchType('web')">Web</button>
+        <button class="action-btn" onclick="searchType('images')">Images</button>
+        <button class="action-btn" onclick="searchType('videos')">Videos</button>
+        <button class="action-btn" onclick="searchType('news')">News</button>
+    </div>
+
+    <div class="footer">
+        © 2026 Velox
+    </div>
+
+</div>
+
+<script>
+
+let currentType = "web";
+
+function searchType(type){
+    currentType = type;
+    performSearch();
+}
+
+function performSearch(){
+
+    const query =
+        document.getElementById("query")
+        .value
+        .trim();
+
+    if(!query) return;
+
+    let url;
+
+    switch(currentType){
+
+        case "images":
+            url = `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(query)}`;
+            break;
+
+        case "videos":
+            url = `https://www.google.com/search?tbm=vid&q=${encodeURIComponent(query)}`;
+            break;
+
+        case "news":
+            url = `https://www.google.com/search?tbm=nws&q=${encodeURIComponent(query)}`;
+            break;
+
+        default:
+            url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+    }
+
+    window.location.href = url;
+}
+
+document
+.getElementById("searchForm")
+.addEventListener("submit", function(e){
+    e.preventDefault();
+    performSearch();
+});
+
+</script>
+
+</body>
+</html>
