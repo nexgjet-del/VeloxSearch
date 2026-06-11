@@ -3,109 +3,93 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Velox Search</title>
+<title>Velox</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    font-family:'Montserrat',sans-serif;
-    background:linear-gradient(135deg,#0f172a,#1e293b);
-    color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
+font-family:'Montserrat',sans-serif;
+background:linear-gradient(135deg,#0f172a,#1e293b);
+color:white;
+min-height:100vh;
+padding:50px;
 }
 
 .container{
-    width:90%;
-    max-width:800px;
-    text-align:center;
+max-width:900px;
+margin:auto;
 }
 
 .logo{
-    font-size:72px;
-    font-weight:700;
-    margin-bottom:10px;
+font-size:72px;
+font-weight:700;
+text-align:center;
+margin-bottom:10px;
 }
 
 .logo span{
-    color:#38bdf8;
+color:#38bdf8;
 }
 
 .subtitle{
-    color:rgba(255,255,255,0.7);
-    margin-bottom:35px;
-    font-size:18px;
+text-align:center;
+opacity:.7;
+margin-bottom:30px;
 }
 
-.search-box{
-    display:flex;
-    gap:10px;
+.search{
+display:flex;
+gap:10px;
 }
 
-.search-box input{
-    flex:1;
-    padding:18px 22px;
-    border:none;
-    border-radius:999px;
-    background:rgba(255,255,255,0.08);
-    color:white;
-    font-size:18px;
-    outline:none;
-    font-family:inherit;
+input{
+flex:1;
+padding:18px;
+border:none;
+border-radius:999px;
+background:rgba(255,255,255,.08);
+color:white;
+font-size:18px;
+outline:none;
 }
 
-.search-box input::placeholder{
-    color:rgba(255,255,255,0.5);
+button{
+padding:18px 28px;
+border:none;
+border-radius:999px;
+background:#38bdf8;
+font-weight:700;
+cursor:pointer;
 }
 
-.search-btn{
-    border:none;
-    background:#38bdf8;
-    color:#0f172a;
-    padding:18px 28px;
-    border-radius:999px;
-    cursor:pointer;
-    font-weight:700;
-    font-family:inherit;
+.results{
+margin-top:30px;
 }
 
-.search-btn:hover{
-    transform:scale(1.03);
+.card{
+background:rgba(255,255,255,.06);
+padding:20px;
+border-radius:18px;
+margin-bottom:15px;
 }
 
-.actions{
-    margin-top:20px;
+.card h3{
+color:#38bdf8;
+margin-bottom:8px;
 }
 
-.action-btn{
-    background:transparent;
-    border:1px solid rgba(255,255,255,0.2);
-    color:white;
-    padding:10px 18px;
-    margin:5px;
-    border-radius:999px;
-    cursor:pointer;
-    font-family:inherit;
+.noresults{
+opacity:.6;
 }
 
-.action-btn:hover{
-    background:rgba(255,255,255,0.08);
-}
-
-.footer{
-    margin-top:40px;
-    color:rgba(255,255,255,0.45);
-    font-size:13px;
-}
 </style>
 </head>
 
@@ -113,88 +97,145 @@ body{
 
 <div class="container">
 
-    <div class="logo">
-        Ve<span>lox</span>
-    </div>
+<div class="logo">
+Ve<span>lox</span>
+</div>
 
-    <div class="subtitle">
-        Fast. Focused. Search the web.
-    </div>
+<div class="subtitle">
+Search inside Velox
+</div>
 
-    <form id="searchForm">
-        <div class="search-box">
-            <input
-                id="query"
-                type="text"
-                placeholder="Search anything..."
-                autocomplete="off"
-            >
-            <button class="search-btn" type="submit">
-                Search
-            </button>
-        </div>
-    </form>
+<div class="search">
 
-    <div class="actions">
-        <button class="action-btn" onclick="searchType('web')">Web</button>
-        <button class="action-btn" onclick="searchType('images')">Images</button>
-        <button class="action-btn" onclick="searchType('videos')">Videos</button>
-        <button class="action-btn" onclick="searchType('news')">News</button>
-    </div>
+<input
+id="query"
+placeholder="Search anything..."
+>
 
-    <div class="footer">
-        © 2026 Velox
-    </div>
+<button onclick="searchSite()">
+Search
+</button>
+
+</div>
+
+<div
+class="results"
+id="results">
+
+</div>
 
 </div>
 
 <script>
 
-let currentType = "web";
+// YOUR SEARCH DATABASE
 
-function searchType(type){
-    currentType = type;
-    performSearch();
+const pages = [
+
+{
+title:"Home",
+content:"Welcome to Velox search engine homepage"
+},
+
+{
+title:"About",
+content:"Velox is a fast search experience built with HTML CSS and JavaScript"
+},
+
+{
+title:"News",
+content:"Technology AI gaming science updates"
+},
+
+{
+title:"Images",
+content:"Photo gallery wallpapers artwork"
+
+},
+
+{
+title:"Help",
+content:"Search for pages and information inside Velox"
+
 }
 
-function performSearch(){
+];
 
-    const query =
-        document.getElementById("query")
-        .value
-        .trim();
+function searchSite(){
 
-    if(!query) return;
+const q =
+document
+.getElementById("query")
+.value
+.toLowerCase()
+.trim();
 
-    let url;
+const results =
+document
+.getElementById("results");
 
-    switch(currentType){
+results.innerHTML="";
 
-        case "images":
-            url = `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(query)}`;
-            break;
+if(!q){
+return;
+}
 
-        case "videos":
-            url = `https://www.google.com/search?tbm=vid&q=${encodeURIComponent(query)}`;
-            break;
+const matches =
+pages.filter(page=>
 
-        case "news":
-            url = `https://www.google.com/search?tbm=nws&q=${encodeURIComponent(query)}`;
-            break;
+page.title
+.toLowerCase()
+.includes(q)
 
-        default:
-            url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
-    }
+||
 
-    window.location.href = url;
+page.content
+.toLowerCase()
+.includes(q)
+
+);
+
+if(matches.length===0){
+
+results.innerHTML=
+`
+<div class="card noresults">
+No results found.
+</div>
+`;
+
+return;
+
+}
+
+matches.forEach(page=>{
+
+results.innerHTML +=
+
+`
+<div class="card">
+
+<h3>${page.title}</h3>
+
+<p>${page.content}</p>
+
+</div>
+`;
+
+});
+
 }
 
 document
-.getElementById("searchForm")
-.addEventListener("submit", function(e){
-    e.preventDefault();
-    performSearch();
-});
+.getElementById("query")
+.addEventListener(
+"keydown",
+e=>{
+if(e.key==="Enter"){
+searchSite();
+}
+}
+);
 
 </script>
 
