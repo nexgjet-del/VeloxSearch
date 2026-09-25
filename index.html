@@ -1,243 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Velox</title>
+  <meta charset='UTF-8'>
+  <title>Velox Search</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #02349b;
+      background-size: cover; /* Makes the image fill the screen */
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      font-family: sans-serif;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    #bg-picker { margin-top: 20px; color: white; cursor: pointer; }
 
-<style>
+    form {
+      background-color: white;
+      width: 400px;
+      height: 44px;
+      border-radius: 32px;
+      display: flex;
+      align-items: center;
+      margin-top: 50px;
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+    input[type="search"] {
+      all: unset;
+      font: 16px system-ui;
+      color: black;
+      width: 100%;
+      padding-left: 20px;
+    }
 
-body{
-font-family:'Montserrat',sans-serif;
-background:linear-gradient(135deg,#0f172a,#1e293b);
-color:white;
-min-height:100vh;
-padding:50px;
-}
+    button { all: unset; cursor: pointer; padding-right: 15px; }
+    svg { fill: #02349b; width: 20px; height: 20px; }
 
-.container{
-max-width:900px;
-margin:auto;
-}
-
-.logo{
-font-size:72px;
-font-weight:700;
-text-align:center;
-margin-bottom:10px;
-}
-
-.logo span{
-color:#38bdf8;
-}
-
-.subtitle{
-text-align:center;
-opacity:.7;
-margin-bottom:30px;
-}
-
-.search{
-display:flex;
-gap:10px;
-}
-
-input{
-flex:1;
-padding:18px;
-border:none;
-border-radius:999px;
-background:rgba(255,255,255,.08);
-color:white;
-font-size:18px;
-outline:none;
-}
-
-button{
-padding:18px 28px;
-border:none;
-border-radius:999px;
-background:#38bdf8;
-font-weight:700;
-cursor:pointer;
-}
-
-.results{
-margin-top:30px;
-}
-
-.card{
-background:rgba(255,255,255,.06);
-padding:20px;
-border-radius:18px;
-margin-bottom:15px;
-}
-
-.card h3{
-color:#38bdf8;
-margin-bottom:8px;
-}
-
-.noresults{
-opacity:.6;
-}
-
-</style>
+    #results { width: 80%; max-width: 600px; margin-top: 30px; color: white; }
+    a { color: #87CEEB; }
+  </style>
 </head>
-
 <body>
 
-<div class="container">
+  <!-- New File Picker -->
+  <input type="file" id="bg-picker" accept="image/*">
 
-<div class="logo">
-Ve<span>lox</span>
-</div>
+  <form role="search" id="form">
+    <input type="search" id="query" placeholder="Search..." required>
+    <button type="submit">
+      <svg viewBox="0 0 1024 1024"><path d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z"></path></svg>
+    </button>
+  </form>
 
-<div class="subtitle">
-Search inside Velox
-</div>
+  <div id="results"></div>
 
-<div class="search">
+  <script>
+    // Handle background upload
+    document.getElementById('bg-picker').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          document.body.style.backgroundImage = `url('${event.target.result}')`;
+        }
+        reader.readAsDataURL(file);
+      }
+    });
 
-<input
-id="query"
-placeholder="Search anything..."
->
+    // Handle search
+    const f = document.getElementById('form');
+    const q = document.getElementById('query');
+    const resultsDiv = document.getElementById('results');
 
-<button onclick="searchSite()">
-Search
-</button>
-
-</div>
-
-<div
-class="results"
-id="results">
-
-</div>
-
-</div>
-
-<script>
-
-// YOUR SEARCH DATABASE
-
-const pages = [
-
-{
-title:"Home",
-content:"Welcome to Velox search engine homepage"
-},
-
-{
-title:"About",
-content:"Velox is a fast search experience built with HTML CSS and JavaScript"
-},
-
-{
-title:"News",
-content:"Technology AI gaming science updates"
-},
-
-{
-title:"Images",
-content:"Photo gallery wallpapers artwork"
-
-},
-
-{
-title:"Help",
-content:"Search for pages and information inside Velox"
-
-}
-
-];
-
-function searchSite(){
-
-const q =
-document
-.getElementById("query")
-.value
-.toLowerCase()
-.trim();
-
-const results =
-document
-.getElementById("results");
-
-results.innerHTML="";
-
-if(!q){
-return;
-}
-
-const matches =
-pages.filter(page=>
-
-page.title
-.toLowerCase()
-.includes(q)
-
-||
-
-page.content
-.toLowerCase()
-.includes(q)
-
-);
-
-if(matches.length===0){
-
-results.innerHTML=
-`
-<div class="card noresults">
-No results found.
-</div>
-`;
-
-return;
-
-}
-
-matches.forEach(page=>{
-
-results.innerHTML +=
-
-`
-<div class="card">
-
-<h3>${page.title}</h3>
-
-<p>${page.content}</p>
-
-</div>
-`;
-
-});
-
-}
-
-document
-.getElementById("query")
-.addEventListener(
-"keydown",
-e=>{
-if(e.key==="Enter"){
-searchSite();
-}
-}
-);
-
-</script>
-
+    f.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      resultsDiv.innerHTML = "Searching...";
+      const response = await fetch('https://google.serper.dev/search', {
+        method: 'POST',
+        headers: { 'X-API-KEY': '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', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ q: q.value })
+      });
+      const data = await response.json();
+      resultsDiv.innerHTML = data.organic.map(item => `
+        <div style="margin-bottom: 20px; background: rgba(0,0,0,0.5); padding: 10px; border-radius: 10px;">
+          <a href="${item.link}" target="_blank" style="font-size: 1.2em;">${item.title}</a><br>
+          <small>${item.snippet}</small>
+        </div>
+      `).join('');
+    });
+  </script>
 </body>
 </html>
