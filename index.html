@@ -1,339 +1,237 @@
+Sure — set that image as the default background while keeping the upload option so users can replace it. Here’s the updated code:
+
+```
 <!doctype html>
-<html lang="en"><head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"C","B":"20260925-01-6e0cc80","C":{"Abril Fatface":"YACgEZbkUVE,0","Alfa Slab One":"YACgEYS9sJU,0","Anton":"YACgEcYqQ-A,0","Archivo":"YACgEZulLoA,0","Arial Narrow":"YAGyDvJ_4Ts,0","Arial Rounded MT Bold":"YAFcfoaHu-s,0","Arial":"YAGyDvJ_4Ts,0","Avenir Next":"YAFcfmNq6UY,0","Baloo 2":"YADK30bC6HQ,0","Bebas Neue":"YACgESME5ew,0","Bricolage Grotesque":"YAFyMcdwzpc,0","Broken Glyph":"YADZ-exUkv0,0","Canva Sans":"YAFdJjTk5UU,1","Caveat":"YALBs2ploWQ,0","Comic Sans MS":"YAFcfvtOAUY,1","Cormorant Garamond":"YAFdJhX-538,0","Courier New":"YAGzXiGs0_8,0","Courier Prime":"YAD1aFjegN8,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","Forum":"YACgEcnnqB4,0","Fraunces":"YAFdJpU7Kkk,0","Georgia":"YAGzXkO0pEM,0","Ghost Mono":"YAHQutsX00Q,0","Hanken Grotesk":"YAFcfhwp99E,0","Helvetica Neue":"YAFcf6CtJfI,0","Helvetica":"YAFcf6CtJfI,0","IBM Plex Mono":"YAFdJkmvhGI,0","Impact":"YAFcfnjI7Vk,0","Instrument Serif":"YAHFeOnZNEk,0","Inter":"YAFdJvSyp_k,3","Iowan Old Style":"YAGNIFa8j9o,0","Jacques Francois":"YADK3zbC6RM,0","JetBrains Mono":"YAFdJksXcAk,0","Josefin Sans":"YAFdJjvw9Ps,0","Lato":"YAFdJuFCnaw,0","Libre Baskerville":"YACgEUFdPdA,0","Lobster":"YAD8SnSjSFI,0","Lora":"YACgEXvxf8Q,0","Merriweather":"YACgEXvHxxs,0","Montserrat":"YAFdtQi73Xs,0","Nunito":"YAFdJoNRMmU,1","Oleo Script":"YACgEQQ14jI,0","Oswald":"YACgEQY10lw,0","Pacifico":"YADLjORQ1u4,0","Phantom Sans":"YAFdJvgJ5TU,0","Playfair Display":"YAFdJhem5V8,1","Plus Jakarta Sans":"YAGvf3_u0_Q,0","Poppins":"YAFdJjbTu24,1","Press Start 2P":"YAFyGr-8pmQ,0","Quicksand":"YAFdJpYtCxE,1","Raleway":"YAFdJhmxbVQ,1","Roboto Slab":"YAFdJswIKAg,0","Rockwell":"YAFcfyVZnN0,0","Rye":"YACgEdQP21k,0","Segoe UI":"YAHNdRD1Klw,0","Source Sans 3":"YAG4lO1Mj10,0","Source Serif 4":"YACgEfdj394,0","Space Grotesk":"YADZ-dYEmhg,0","Space Mono":"YADW1-vpsoc,0","Times New Roman":"YAGzXW3gftg,0","Times":"YAGzXW3gftg,0","Trebuchet MS":"YAFcfrglpVA,0","UV Display":"YAEdVfSSpYo,0","UV Sans":"YAFdJvgJ5TU,0","Ubuntu":"YACgERDU--Q,0","Verdana":"YAGzXTctYtQ,0","Work Sans":"YAGXhLOKv44,0","Yellowtail":"YACgEYG4kG4,0","ui-monospace":"YAD1aFjegN8,0","ui-sans-serif":"YACkoD1yZN0,0"}}');</script><script src="/_sdk/6542d56fbfe7a3eb.telemetry_sdk.js" integrity="sha512-ECdM0nK7EkwDuOqho2qxgyRQXyBHk9hZqRKMBr+Xsu6zjeHlt+qkO2N2YRiHN7Kg4e1fEHDhjIp4bGJYVypv1g=="></script>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Velox Search</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    :root {
-      --velox-blue: #02349b;
-      --ink: #07235d;
-      --soft-blue: #eaf1ff;
-    }
-
-    * { box-sizing: border-box; }
-
     body {
-      margin: 0;
-      min-width: 320px;
       font-family: "DM Sans", sans-serif;
       background-color: #ffffff;
-    }
-
-    .velox-shell {
-      width: 100%;
-      min-height: calc(100 * min(var(--vh, 1vh), 1vh));
-      position: relative;
-      isolation: isolate;
-      overflow: hidden;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-
-    .velox-shell::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background: #ffffff;
-      transition: background 220ms ease;
-    }
-
-    .velox-shell.has-custom-background::before {
-      background: linear-gradient(135deg, rgba(2, 20, 66, 0.75), rgba(2, 52, 155, 0.63));
+      color: #02349b;
     }
 
     .glass-panel {
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.23);
-      box-shadow: 0 22px 70px rgba(0, 20, 73, 0.28);
-      backdrop-filter: blur(14px);
-    }
-
-    .file-control {
-      color: #02349b;
-    }
-
-    .file-control::file-selector-button {
-      border: 0;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.72);
-      color: #02349b;
-      cursor: pointer;
-      font: inherit;
-      font-weight: 600;
-      margin-right: 0.75rem;
-      padding: 0.55rem 0.9rem;
-      transition: background 160ms ease;
-    }
-
-    .file-control::file-selector-button:hover {
-      background: rgba(255, 255, 255, 0.3);
-    }
-
-    .search-field:focus-within {
-      box-shadow: 0 0 0 4px rgba(176, 207, 255, 0.55);
-    }
-
-    .result-card {
-      box-shadow: 0 10px 28px rgba(0, 25, 88, 0.18);
-      transition: transform 170ms ease, box-shadow 170ms ease;
-    }
-
-    .result-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 34px rgba(0, 25, 88, 0.24);
-    }
-
-    .fade-in {
-      animation: fadeUp 420ms ease both;
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(2, 52, 155, 0.1);
+      box-shadow: 0 10px 30px rgba(2, 52, 155, 0.1);
+      backdrop-filter: blur(10px);
     }
 
     .spinner {
-      width: 1.15rem;
-      height: 1.15rem;
-      border: 2px solid rgba(2, 52, 155, 0.22);
+      width: 1.5rem;
+      height: 1.5rem;
+      border: 3px solid rgba(2, 52, 155, 0.2);
       border-top-color: #02349b;
       border-radius: 50%;
       animation: spin 0.75s linear infinite;
     }
 
     @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    @media (max-width: 640px) {
-      .velox-main { padding: 2.25rem 1rem; }
-      .search-actions { width: 100%; }
-      .search-submit { width: 100%; justify-content: center; }
+      to {
+        transform: rotate(360deg);
+      }
     }
   </style>
-  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
-  <script src="/_sdk/6c2ecc939521f244.data_sdk.js" type="text/javascript" integrity="sha512-gRx8s+XsZDN6mSIQu2sivLZysbV0WHhb5kXNUWlgVb5lCMU1foJYukyMEDPv8Tnoocb8iwqB4XdRrWc7oEGzIQ=="></script>
-  <script src="/_sdk/ef0304cb8c7ed696.editing_sdk.js" type="text/javascript" integrity="sha512-kmL9L5Yuj57MQaequKbMA3aGpT/5lBUp10iGA3e3qnmMLs2ZZQ0poCcIfdd5rTgrhEvNPe4HK0ohePW7ZpgAFg=="></script>
-  <script src="/_sdk/ddcab3e45959c817.resizing_sdk.js" type="text/javascript" integrity="sha512-VAviUKfZVzugWBSeULYjSljTX+nb84wc6Zzbx5GQaQgh6X2ISSjXi8eIiCDGdwDh10esJMY0+QFQgUy9NcrTlQ=="></script>
- </head>
- <body data-template-id="__page-root" style="background: rgb(255, 255, 255);">
-  <div id="app-shell" class="velox-shell w-full flex flex-col">
-   <header class="w-full px-5 pt-6 sm:px-8 sm:pt-8">
-    <div class="mx-auto flex max-w-6xl items-center justify-between">
-     <div class="flex items-center gap-2 text-white/85 text-sm font-medium"><i data-lucide="zap" aria-hidden="true" class="h-4 w-4"></i> <span data-template-id="header-label" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 500; font-style: normal; font-size: 14px;">Fast, focused web discovery</span>
-     </div>
-    </div>
-   </header>
-   <main class="velox-main w-full flex-1 px-5 py-10 sm:px-8 sm:py-14">
-    <section class="mx-auto w-full max-w-4xl">
-     <div class="fade-in flex flex-col items-center text-center"><img data-template-id="velox-logo" loading="lazy" class="canva-image mb-5 h-auto max-h-40 w-auto max-w-[360px] object-contain" src="canva://MAHWKhHuWyg/1" alt="Blue square Velox logo with black VELOX lettering">
-      <h1 data-template-id="brand-title" class="canva-text font-bold tracking-tight" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 32px;">Velox Search</h1>
-      <p data-template-id="brand-subtitle" class="canva-text mt-3 max-w-xl" style="color: rgb(220, 232, 255); font-weight: 400; font-style: normal; font-size: 18px; line-height: 1.5;">Find what matters, without the noise.</p>
-     </div>
-     <section class="glass-panel fade-in mt-9 rounded-3xl p-5 sm:p-7" style="animation-delay: 90ms;" aria-labelledby="background-heading">
-      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-       <div>
-        <h2 id="background-heading" data-template-id="background-title" class="canva-text font-semibold" style="color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 18px;">Make it yours</h2>
-        <p data-template-id="background-helper" class="canva-text mt-1" style="color: rgb(2, 52, 155); font-weight: 400; font-style: normal; font-size: 14px;">Upload an image d.</p>
-       </div>
-       <div class="w-full sm:w-auto"><label data-template-id="background-picker-label" class="canva-text sr-only" for="background-picker" style="color: rgb(255, 255, 255); font-weight: 400; font-style: normal; font-size: 16px;">Choose a background image</label> <input id="background-picker" class="file-control w-full max-w-full text-sm sm:w-[290px]" type="file" accept="image/*">
-       </div>
-      </div>
-     </section>
-     <section class="fade-in mt-6" style="animation-delay: 160ms;" aria-labelledby="search-heading">
-      <h2 id="search-heading" class="sr-only">Search the web</h2>
-      <form id="search-form" class="w-full" novalidate=""><label data-template-id="search-label" class="canva-text sr-only" for="search-query" style="color: rgb(255, 255, 255); font-weight: 400; font-style: normal; font-size: 16px;">Search the web</label>
-       <div class="search-field flex flex-col gap-3 rounded-[1.45rem] bg-white p-3 shadow-2xl sm:flex-row sm:items-center">
-        <div class="flex min-w-0 flex-1 items-center gap-3 px-3"><i data-lucide="search" aria-hidden="true" class="h-5 w-5 shrink-0 text-[#02349b]"></i> <input id="search-query" data-template-id="search-input" class="canva-input w-full min-w-0 border-0 bg-transparent py-2 text-[17px] text-[#07235d] outline-none placeholder:text-slate-400" type="search" required="" autocomplete="off" placeholder="What are you looking for?" style="color: rgb(2, 52, 155); font-weight: 400; font-style: normal; font-size: 17px;">
-        </div>
-        <div class="search-actions"><button id="search-submit" data-template-id="search-button" class="canva-button search-submit flex items-center gap-2 rounded-xl px-6 py-3 font-semibold transition hover:brightness-110 focus:outline-none focus:ring-4 focus:ring-blue-200 disabled:cursor-not-allowed disabled:opacity-70" type="submit" style="background: rgb(255, 255, 255); color: rgb(2, 52, 155);"> <i data-lucide="arrow-right" aria-hidden="true" class="h-4 w-4"></i> <span data-template-id="search-button-text" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 16px;">Search</span> </button>
-        </div>
-       </div>
-      </form>
-      <p data-template-id="search-note" class="canva-text mt-3 text-center" style="color: rgb(220, 232, 255); font-weight: 400; font-style: normal; font-size: 13px;">Powered by focused search technology.</p>
-     </section>
-     <section id="status-panel" class="mt-7" aria-live="polite">
-      <div id="ready-state" data-template-id="ready-state" class="canva-panel rounded-2xl px-5 py-4 text-center" style="background: rgba(255, 255, 255, 0.12);">
-       <p data-template-id="ready-message" class="canva-text" style="color: rgb(2, 52, 155); font-weight: 400; font-style: normal; font-size: 15px;">Enter a search term to discover results from across the web.</p>
-      </div>
-      <div id="loading-state" data-template-id="loading-state" class="canva-panel hidden items-center justify-center gap-3 rounded-2xl px-5 py-4" style="background: rgb(255, 255, 255);"><span class="spinner" aria-hidden="true"></span>
-       <p data-template-id="loading-message" class="canva-text" style="color: rgb(2, 52, 155); font-weight: 600; font-style: normal; font-size: 16px;">Searching the web…</p>
-      </div>
-      <div id="configuration-state" data-template-id="configuration-state" class="canva-panel hidden rounded-2xl px-5 py-4 text-center" style="background: rgb(255, 244, 215);">
-       <p data-template-id="configuration-message" class="canva-text" style="color: rgb(2, 52, 155); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.5;">Search is ready for a Serper API key. Add a valid key to the app configuration to enable live results.</p>
-      </div>
-      <div id="error-state" data-template-id="error-state" class="canva-panel hidden rounded-2xl px-5 py-4 text-center" style="background: rgb(255, 229, 230);">
-       <p data-template-id="error-message" class="canva-text" style="color: rgb(2, 52, 155); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.5;">We couldn't complete that search. Please check your connection and try again.</p>
-      </div>
-      <div id="empty-state" data-template-id="empty-state" class="canva-panel hidden rounded-2xl px-5 py-4 text-center" style="background: rgba(255, 255, 255, 0.12);">
-       <p data-template-id="empty-message" class="canva-text" style="color: rgb(2, 52, 155); font-weight: 400; font-style: normal; font-size: 15px;">No organic results were found for that search. Try a different phrase.</p>
-      </div>
-     </section>
-     <section id="results-section" class="mt-7 hidden" aria-labelledby="results-heading">
-      <div class="mb-4 flex items-center gap-3">
-       <div class="h-px flex-1 bg-white/35"></div>
-       <h2 id="results-heading" data-template-id="results-title" class="canva-text font-semibold" style="color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 18px;">Search results</h2>
-       <div class="h-px flex-1 bg-white/35"></div>
-      </div>
-      <div id="results-list" class="grid w-full gap-4"></div>
-     </section>
-    </section>
-   </main>
-   <footer class="w-full px-5 pb-6 text-center sm:px-8 sm:pb-8">
-    <p data-template-id="footer-text" class="canva-text" style="color: rgb(220, 232, 255); font-weight: 400; font-style: normal; font-size: 13px;">Velox 2026</p>
-   </footer>
-  </div>
-  <template id="result-card-template">
-   <article data-template-id="result-card" class="canva-card result-card rounded-2xl p-5 sm:p-6">
-    <p data-template-id="result-domain" class="canva-text mb-2 break-all text-sm font-medium"></p>
-    <h3 class="mb-2"><a data-template-id="result-title" class="canva-link block font-bold leading-snug underline decoration-2 underline-offset-4 transition hover:opacity-70" target="_blank" rel="noopener noreferrer"></a></h3>
-    <p data-template-id="result-snippet" class="canva-text leading-relaxed"></p>
-   </article>
-  </template>
-  <script>
-    /*
-      Configure this placeholder during deployment with a valid Serper key.
-      Do not place a real secret in editable page content.
-    */
-    const SERPER_API_KEY = "YOUR_SERPER_API_KEY";
-    const SERPER_ENDPOINT = "https://google.serper.dev/search";
+</head>
 
-    const appShell = document.getElementById("app-shell");
-    const backgroundPicker = document.getElementById("background-picker");
+<body>
+
+  <div
+    id="app-shell"
+    class="min-h-screen p-6 bg-cover bg-center bg-fixed"
+    style="background-image: url('https://ci3.googleusercontent.com/mail-img-att/AGAZnRo_o9zeJJVwXR1fdjG1daG16VcrpOQ80YBV30oByQD8A-g4w-rOuuJK__xAFg_WPYJbOsHXHhT7kcUQ5fBrR6J9QUoFXaVzlNh7EeM93OnmStr833l3XUZaJFe1MtVzc5H97FQpo5Y544Zvq_XMhoi35B-GKtaa7veRcrTs3gaD8zpo89-ShbTX_3IPcuCkE7RNdmql4sU-d5CE-aCDTwWOJ31wrffIR9rZohhYqpJ9KI0R3DQOgN7Lxj05pZDALXjALLyw6W3BTn_qrJZAG9j0vcg38vEo1vRQkPxnwzyFUA5ABwt6urizTrkF_7mFOiXmJSNTaQ1cOuIZFzvZJOGIAqbfgvktE_EoS-LomEdKx71MExZjDjVHnosgd7aObCzdAUFHDt1mhKiIjaWGLVCWFK1AMFOckpiUlaB-fQbkNh27cssujEWK7gexKJNDfPZfEAvA2MO3XDmglwPzZ9udmwyj72dZizv3OCPPFkn4w7gZ4vvcXX_46lado_RxXEZDfjK-h5IRAWZu9Ka3-WTqf88u8DaiCa6qiDTOKuNiLTUKiXsS-HALqfxHh2ZI_gQu_mCO6RfsapbVNdo-1PvsdlI8K55EJJnU4DfMzRLud55OETVWFKjpfuQSE6cy8CMwqfJZlWCmFsuMdepCHisE7MAQYPb32lbrPB5hHp3wJyGSyeKVsJL7LP1aZ-LrZ8kpJB5p0U-UO6IRSUWlvshyRuwmsgPyIMRlIhS2KKOF6v5YwrkrUSPh4tztjFpI8beHsSZO7jnxUztpdYuMxsqu4SrSCPCto-q8nvSogtCB6LPci_HM97vej9EJm1cr2nlSLbH919eYFDna0RykB8ol4wO2D2r8SHYUt_ndx8jrf0smgIXbn3RHjagWteM3qblImUc7HeUUHAV8IynfsnTc3Y3-POPh6MqburdrVLCWznlFi6MTEEbhvaubsWauf6PlonV7t81qzIRH9TReJLC6IWLeuy4J8iATRTbV-ykAAXVEgLhGZRVBEN5iDfxenLpU7cqUCE9LBqDCpJCjhs0-O9pGW8QGHWHYbI2FNKZ1XbgKB8xWPn773rBG-XE3kP-9_vleoNLYVhWb2tMnkw2KicBfLNM2ehExybvyjsV2STA5KstOZ6-BOjftHBH2WBf4=s0-l75-ft');
+    background-repeat: no-repeat;
+  >
+
+    <main class="max-w-4xl mx-auto w-full mt-10">
+
+      <div class="text-center mb-10">
+        <h1 class="text-4xl font-bold text-[#02349b]">
+          Velox Search
+        </h1>
+
+        <p class="text-[#02349b] mt-2">
+          Find what matters, without the noise.
+        </p>
+      </div>
+
+      <!-- Background Selector -->
+      <section class="glass-panel rounded-3xl p-6 mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+
+        <div>
+          <h2 class="font-bold text-[#02349b]">
+            Make it yours
+          </h2>
+
+          <p class="text-sm text-[#02349b]/80">
+            Upload a custom background.
+          </p>
+        </div>
+
+        <label
+          for="background-picker"
+          class="cursor-pointer bg-[#02349b] text-white px-5 py-2.5 rounded-xl font-semibold text-sm hover:opacity-90 transition-opacity"
+        >
+          Select Image
+        </label>
+
+        <input
+          id="background-picker"
+          type="file"
+          accept="image/*"
+          class="hidden"
+        >
+
+      </section>
+
+      <!-- Search Form -->
+      <form id="search-form" class="mb-6">
+
+        <div class="flex gap-2 p-2 bg-white border-2 border-[#02349b] rounded-2xl">
+
+          <input
+            id="search-query"
+            class="w-full px-4 py-2 outline-none text-[#02349b] bg-transparent"
+            placeholder="Search the web..."
+            required
+          >
+
+          <button
+            id="search-submit"
+            class="bg-[#02349b] text-white px-6 py-2 rounded-xl font-bold"
+            type="submit"
+          >
+            Search
+          </button>
+
+        </div>
+
+      </form>
+
+      <div id="results-list" class="grid gap-4"></div>
+
+    </main>
+  </div>
+
+  <script>
+
+    const SERPER_API_KEY = "YOUR_SERPER_API_KEY";
+
     const searchForm = document.getElementById("search-form");
     const searchInput = document.getElementById("search-query");
-    const submitButton = document.getElementById("search-submit");
-    const resultsSection = document.getElementById("results-section");
     const resultsList = document.getElementById("results-list");
+    const appShell = document.getElementById("app-shell");
 
-    const states = {
-      ready: document.getElementById("ready-state"),
-      loading: document.getElementById("loading-state"),
-      configuration: document.getElementById("configuration-state"),
-      error: document.getElementById("error-state"),
-      empty: document.getElementById("empty-state")
-    };
+    /*
+     * Search
+     */
+    searchForm.addEventListener("submit", async (e) => {
 
-    function showState(name) {
-      Object.entries(states).forEach(([stateName, element]) => {
-        const isActive = stateName === name;
-        element.classList.toggle("hidden", !isActive);
-        if (stateName === "loading") {
-          element.classList.toggle("flex", isActive);
-        }
-      });
-    }
+      e.preventDefault();
 
-    function setLoading(isLoading) {
-      submitButton.disabled = isLoading;
-      searchInput.disabled = isLoading;
-    }
-
-    function clearResults() {
-      resultsList.replaceChildren();
-      resultsSection.classList.add("hidden");
-    }
-
-    function renderResults(results) {
-      clearResults();
-
-      const template = document.getElementById("result-card-template");
-      results.forEach((result) => {
-        if (!result.title || !result.link) return;
-
-        const fragment = template.content.cloneNode(true);
-        const title = fragment.querySelector('[data-template-id="result-title"]');
-        const domain = fragment.querySelector('[data-template-id="result-domain"]');
-        const snippet = fragment.querySelector('[data-template-id="result-snippet"]');
-
-        title.textContent = result.title;
-        title.href = result.link;
-
-        try {
-          domain.textContent = new URL(result.link).hostname.replace(/^www\./, "");
-        } catch {
-          domain.textContent = result.link;
-        }
-
-        snippet.textContent = result.snippet || "";
-        resultsList.appendChild(fragment);
-      });
-
-      if (resultsList.childElementCount > 0) {
-        resultsSection.classList.remove("hidden");
-      }
-    }
-
-    backgroundPicker.addEventListener("change", (event) => {
-      const file = event.target.files && event.target.files[0];
-      if (!file || !file.type.startsWith("image/")) return;
-
-      const reader = new FileReader();
-      reader.addEventListener("load", () => {
-        appShell.style.backgroundImage = 'url("' + reader.result + '")';
-        appShell.classList.add("has-custom-background");
-      });
-      reader.readAsDataURL(file);
-    });
-
-    searchForm.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      const query = searchInput.value.trim();
-
-      if (!query) {
-        searchInput.focus();
-        return;
-      }
-
-      clearResults();
-
-      if (!SERPER_API_KEY || SERPER_API_KEY === "YOUR_SERPER_API_KEY") {
-        showState("configuration");
-        return;
-      }
-
-      showState("loading");
-      setLoading(true);
+      resultsList.innerHTML =
+        '<div class="spinner mx-auto mt-10"></div>';
 
       try {
-        const response = await fetch(SERPER_ENDPOINT, {
+
+        const res = await fetch("https://google.serper.dev/search", {
+
           method: "POST",
+
           headers: {
-            "Content-Type": "application/json",
-            "X-API-KEY": SERPER_API_KEY
+            "X-API-KEY": SERPER_API_KEY,
+            "Content-Type": "application/json"
           },
-          body: JSON.stringify({ q: query })
+
+          body: JSON.stringify({
+            q: searchInput.value
+          })
+
         });
 
-        if (!response.ok) {
-          throw new Error("Search service request failed");
+        const data = await res.json();
+
+        resultsList.innerHTML = "";
+
+        if (data.organic && data.organic.length > 0) {
+
+          data.organic.forEach(item => {
+
+            resultsList.innerHTML += `
+              <div class="glass-panel p-5 rounded-2xl">
+
+                <a
+                  href="${item.link}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="font-bold text-[#02349b] underline text-lg"
+                >
+                  ${item.title}
+                </a>
+
+                <p class="text-sm text-[#02349b] mt-2 opacity-90">
+                  ${item.snippet || ""}
+                </p>
+
+              </div>
+            `;
+
+          });
+
+        } else {
+
+          resultsList.innerHTML =
+            "<p class='text-center'>No results found.</p>";
+
         }
 
-        const payload = await response.json();
-        const organicResults = Array.isArray(payload.organic) ? payload.organic : [];
-
-        if (organicResults.length === 0) {
-          showState("empty");
-          return;
-        }
-
-        renderResults(organicResults);
-        document.getElementById("status-panel").classList.add("hidden");
       } catch (error) {
-        showState("error");
-      } finally {
-        setLoading(false);
+
+        console.error(error);
+
+        resultsList.innerHTML =
+          "<p class='text-center'>Error fetching results. Please check your API key.</p>";
+
       }
+
     });
 
-    document.addEventListener("DOMContentLoaded", () => {
-      lucide.createIcons();
-      showState("ready");
-    });
+    /*
+     * Custom Background
+     */
+    document
+      .getElementById("background-picker")
+      .addEventListener("change", (e) => {
+
+        const file = e.target.files[0];
+
+        if (!file) return;
+
+        const reader = new FileReader();
+
+        reader.onload = (event) => {
+
+          appShell.style.backgroundImage =
+            `url("${event.target.result}")`;
+
+        };
+
+        reader.readAsDataURL(file);
+
+      });
+
   </script>
- 
-</body></html>
+
+</body>
+</html>
+```
+
+ The supplied image is now the **default full-page background**, and selecting another image will still replace it.
