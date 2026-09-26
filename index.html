@@ -11,7 +11,7 @@
   <style>
     body {
       font-family: "DM Sans", sans-serif;
-      background-color: #ffffff;
+      background-color: #fff;
       color: #02349b;
     }
 
@@ -32,203 +32,199 @@
     }
 
     @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
+      to { transform: rotate(360deg); }
     }
   </style>
 </head>
 
 <body>
-
   <div
     id="app-shell"
     class="min-h-screen p-6 bg-cover bg-center bg-fixed"
-    style="background-image: url('https://ci3.googleusercontent.com/mail-img-att/AGAZnRo_o9zeJJVwXR1fdjG1daG16VcrpOQ80YBV30oByQD8A-g4w-rOuuJK__xAFg_WPYJbOsHXHhT7kcUQ5fBrR6J9QUoFXaVzlNh7EeM93OnmStr833l3XUZaJFe1MtVzc5H97FQpo5Y544Zvq_XMhoi35B-GKtaa7veRcrTs3gaD8zpo89-ShbTX_3IPcuCkE7RNdmql4sU-d5CE-aCDTwWOJ31wrffIR9rZohhYqpJ9KI0R3DQOgN7Lxj05pZDALXjALLyw6W3BTn_qrJZAG9j0vcg38vEo1vRQkPxnwzyFUA5ABwt6urizTrkF_7mFOiXmJSNTaQ1cOuIZFzvZJOGIAqbfgvktE_EoS-LomEdKx71MExZjDjVHnosgd7aObCzdAUFHDt1mhKiIjaWGLVCWFK1AMFOckpiUlaB-fQbkNh27cssujEWK7gexKJNDfPZfEAvA2MO3XDmglwPzZ9udmwyj72dZizv3OCPPFkn4w7gZ4vvcXX_46lado_RxXEZDfjK-h5IRAWZu9Ka3-WTqf88u8DaiCa6qiDTOKuNiLTUKiXsS-HALqfxHh2ZI_gQu_mCO6RfsapbVNdo-1PvsdlI8K55EJJnU4DfMzRLud55OETVWFKjpfuQSE6cy8CMwqfJZlWCmFsuMdepCHisE7MAQYPb32lbrPB5hHp3wJyGSyeKVsJL7LP1aZ-LrZ8kpJB5p0U-UO6IRSUWlvshyRuwmsgPyIMRlIhS2KKOF6v5YwrkrUSPh4tztjFpI8beHsSZO7jnxUztpdYuMxsqu4SrSCPCto-q8nvSogtCB6LPci_HM97vej9EJm1cr2nlSLbH919eYFDna0RykB8ol4wO2D2r8SHYUt_ndx8jrf0smgIXbn3RHjagWteM3qblImUc7HeUUHAV8IynfsnTc3Y3-POPh6MqburdrVLCWznlFi6MTEEbhvaubsWauf6PlonV7t81qzIRH9TReJLC6IWLeuy4J8iATRTbV-ykAAXVEgLhGZRVBEN5iDfxenLpU7cqUCE9LBqDCpJCjhs0-O9pGW8QGHWHYbI2FNKZ1XbgKB8xWPn773rBG-XE3kP-9_vleoNLYVhWb2tMnkw2KicBfLNM2ehExybvyjsV2STA5KstOZ6-BOjftHBH2WBf4=s0-l75-ft');
-    background-repeat: no-repeat;
+    style="background-image: url('https://ci3.googleusercontent.com/mail-img-att/AGAZnRo_o9zeJJVwXR1fdjG1daG16VcrpOQ80YBV30oByQD8A-g4w-rOuuJK__xAFg_WPYJbOsHXHhT7kcUQ5fBrR6J9QUoFXaVzlNh7EeM93OnmStr833l3XUZaJFe1MtVzc5H97FQpo5Y544Zvq_XMhoi35B-GKtaa7veRcrTs3gaD8zpo89-ShbTX_3IPcuCkE7RNdmql4sU-d5CE-aCDTwWOJ31wrffIR9rZohhYqpJ9KI0R3DQOgN7Lxj05pZDALXjALLyw6W3BTn_qrJZAG9j0vcg38vEo1vRQkPxnwzyFUA5ABwt6urizTrkF_7mFOiXmJSNTaQ1cOuIZFzvZJOGIAqbfgvktE_EoS-LomEdKx71MExZjDjVHnosgd7aObCzdAUFHDt1mhKiIjaWGLVCWFK1AMFOckpiUlaB-fQbkNh27cssujEWK7gexKJNDfPZfEAvA2MO3XDmglwPzZ9udmwyj72dZizv3OCPPFkn4w7gZ4vvcXX_46lado_RxXEZDfjK-h5IRAWZu9Ka3-WTqf88u8DaiCa6qiDTOKuNiLTUKiXsS-HALqfxHh2ZI_gQu_mCO6RfsapbVNdo-1PvsdlI8K55EJJnU4DfMzRLud55OETVWFKjpfuQSE6cy8CMwqfJZlWCmFsuMdepCHisE7MAQYPb32lbrPB5hHp3wJyGSyeKVsJL7LP1aZ-LrZ8kpJB5p0U-UO6IRSUWlvshyRuwmsgPyIMRlIhS2KKOF6v5YwrkrUSPh4tztjFpI8beHsSZO7jnxUztpdYuMxsqu4SrSCPCto-q8nvSogtCB6LPci_HM97vej9EJm1cr2nlSLbH919eYFDna0RykB8ol4wO2D2r8SHYUt_ndx8jrf0smgIXbn3RHjagWteM3qblImUc7HeUUHAV8IynfsnTc3Y3-POPh6MqburdrVLCWznlFi6MTEEbhvaubsWauf6PlonV7t81qzIRH9TReJLC6IWLeuy4J8iATRTbV-ykAAXVEgLhGZRVBEN5iDfxenLpU7cqUCE9LBqDCpJCjhs0-O9pGW8QGHWHYbI2FNKZ1XbgKB8xWPn773rBG-XE3kP-9_vleoNLYVhWb2tMnkw2KicBfLNM2ehExybvyjsV2STA5KstOZ6-BOjftHBH2WBf4=s0-l75-ft'); background-repeat: no-repeat;"
   >
-
     <main class="max-w-4xl mx-auto w-full mt-10">
+      <header class="text-center mb-10">
+        <h1 class="text-4xl font-bold text-[#02349b]">Velox Search</h1>
+        <p class="text-[#02349b] mt-2">Find what matters, without the noise.</p>
+      </header>
 
-      <div class="text-center mb-10">
-        <h1 class="text-4xl font-bold text-[#02349b]">
-          Velox Search
-        </h1>
-
-        <p class="text-[#02349b] mt-2">
-          Find what matters, without the noise.
-        </p>
-      </div>
-
-      <!-- Background Selector -->
       <section class="glass-panel rounded-3xl p-6 mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-
         <div>
-          <h2 class="font-bold text-[#02349b]">
-            Make it yours
-          </h2>
-
-          <p class="text-sm text-[#02349b]/80">
-            Upload a custom background.
-          </p>
+          <h2 class="font-bold">Make it yours</h2>
+          <p class="text-sm text-[#02349b]/80">Upload a custom background.</p>
         </div>
 
-        <label
-          for="background-picker"
-          class="cursor-pointer bg-[#02349b] text-white px-5 py-2.5 rounded-xl font-semibold text-sm hover:opacity-90 transition-opacity"
-        >
+        <label for="background-picker"
+          class="cursor-pointer bg-[#02349b] text-white px-5 py-2.5 rounded-xl font-semibold text-sm hover:opacity-90">
           Select Image
         </label>
-
-        <input
-          id="background-picker"
-          type="file"
-          accept="image/*"
-          class="hidden"
-        >
-
+        <input id="background-picker" type="file" accept="image/*" class="hidden">
       </section>
 
-      <!-- Search Form -->
-      <form id="search-form" class="mb-6">
+      <!-- Search bar and Vex image -->
+      <div class="flex items-stretch gap-3 mb-6">
+        <form id="search-form" class="flex-1 min-w-0">
+          <div class="flex gap-2 p-2 bg-white border-2 border-[#02349b] rounded-2xl">
+            <input id="search-query"
+              class="w-full min-w-0 px-4 py-2 outline-none text-[#02349b] bg-transparent"
+              placeholder="Search the web..." required>
+            <button id="search-submit"
+              class="shrink-0 bg-[#02349b] text-white px-6 py-2 rounded-xl font-bold"
+              type="submit">
+              Search
+            </button>
+          </div>
+        </form>
 
-        <div class="flex gap-2 p-2 bg-white border-2 border-[#02349b] rounded-2xl">
+        <button id="vex-toggle" type="button"
+          class="shrink-0 w-16 h-16 rounded-2xl overflow-hidden border-2 border-[#02349b] bg-white hover:scale-105 transition-transform"
+          aria-label="Switch to Vex AI" title="Chat with Vex">
+          <img src="Vex ai.png" alt="Open Vex AI" class="w-full h-full object-cover">
+        </button>
+      </div>
 
-          <input
-            id="search-query"
-            class="w-full px-4 py-2 outline-none text-[#02349b] bg-transparent"
-            placeholder="Search the web..."
-            required
-          >
+      <p id="mode-hint" class="text-sm text-center mb-4 text-[#02349b]/80">
+        Click the Vex image to switch the search bar to AI chat.
+      </p>
 
-          <button
-            id="search-submit"
-            class="bg-[#02349b] text-white px-6 py-2 rounded-xl font-bold"
-            type="submit"
-          >
-            Search
-          </button>
-
-        </div>
-
-      </form>
-
-      <div id="results-list" class="grid gap-4"></div>
-
+      <div id="results-list" class="grid gap-4" aria-live="polite"></div>
     </main>
   </div>
 
   <script>
-
+    // Add your Serper key here to enable web search.
+    // For production, keep this key on a server rather than in browser code.
     const SERPER_API_KEY = "YOUR_SERPER_API_KEY";
 
     const searchForm = document.getElementById("search-form");
     const searchInput = document.getElementById("search-query");
+    const searchButton = document.getElementById("search-submit");
     const resultsList = document.getElementById("results-list");
     const appShell = document.getElementById("app-shell");
+    const vexToggle = document.getElementById("vex-toggle");
+    const modeHint = document.getElementById("mode-hint");
 
-    /*
-     * Search
-     */
-    searchForm.addEventListener("submit", async (e) => {
+    let vexMode = false;
+    const vexHistory = [];
 
-      e.preventDefault();
+    function setMode(useVex) {
+      vexMode = useVex;
+      resultsList.replaceChildren();
 
-      resultsList.innerHTML =
-        '<div class="spinner mx-auto mt-10"></div>';
-
-      try {
-
-        const res = await fetch("https://google.serper.dev/search", {
-
-          method: "POST",
-
-          headers: {
-            "X-API-KEY": SERPER_API_KEY,
-            "Content-Type": "application/json"
-          },
-
-          body: JSON.stringify({
-            q: searchInput.value
-          })
-
-        });
-
-        const data = await res.json();
-
-        resultsList.innerHTML = "";
-
-        if (data.organic && data.organic.length > 0) {
-
-          data.organic.forEach(item => {
-
-            resultsList.innerHTML += `
-              <div class="glass-panel p-5 rounded-2xl">
-
-                <a
-                  href="${item.link}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="font-bold text-[#02349b] underline text-lg"
-                >
-                  ${item.title}
-                </a>
-
-                <p class="text-sm text-[#02349b] mt-2 opacity-90">
-                  ${item.snippet || ""}
-                </p>
-
-              </div>
-            `;
-
-          });
-
-        } else {
-
-          resultsList.innerHTML =
-            "<p class='text-center'>No results found.</p>";
-
-        }
-
-      } catch (error) {
-
-        console.error(error);
-
-        resultsList.innerHTML =
-          "<p class='text-center'>Error fetching results. Please check your API key.</p>";
-
+      if (vexMode) {
+        searchInput.placeholder = "Ask Vex anything...";
+        searchButton.textContent = "Send";
+        vexToggle.setAttribute("aria-label", "Switch to web search");
+        vexToggle.title = "Switch to web search";
+        modeHint.textContent = "Vex AI mode — click the image again to return to web search.";
+      } else {
+        searchInput.placeholder = "Search the web...";
+        searchButton.textContent = "Search";
+        vexToggle.setAttribute("aria-label", "Switch to Vex AI");
+        vexToggle.title = "Chat with Vex";
+        modeHint.textContent = "Click the Vex image to switch the search bar to AI chat.";
       }
 
+      searchInput.focus();
+    }
+
+    vexToggle.addEventListener("click", () => setMode(!vexMode));
+
+    searchForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const query = searchInput.value.trim();
+      if (!query) return;
+
+      searchButton.disabled = true;
+      resultsList.innerHTML = '<div class="spinner mx-auto mt-10"></div>';
+
+      try {
+        if (vexMode) {
+          vexHistory.push({ role: "user", content: query });
+
+          const response = await fetch("/api/vex", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ messages: vexHistory })
+          });
+
+          if (!response.ok) throw new Error("Vex request failed");
+
+          const data = await response.json();
+          if (typeof data.reply !== "string") throw new Error("Invalid Vex response");
+
+          vexHistory.push({ role: "assistant", content: data.reply });
+
+          const answer = document.createElement("div");
+          answer.className = "glass-panel p-5 rounded-2xl whitespace-pre-wrap";
+          answer.textContent = data.reply;
+          resultsList.replaceChildren(answer);
+        } else {
+          if (SERPER_API_KEY === "YOUR_SERPER_API_KEY") {
+            resultsList.textContent = "Add your Serper API key to enable web search.";
+            return;
+          }
+
+          const response = await fetch("https://google.serper.dev/search", {
+            method: "POST",
+            headers: {
+              "X-API-KEY": SERPER_API_KEY,
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ q: query })
+          });
+
+          if (!response.ok) throw new Error("Search request failed");
+
+          const data = await response.json();
+          resultsList.replaceChildren();
+
+          if (data.organic?.length) {
+            data.organic.forEach((item) => {
+              const card = document.createElement("div");
+              card.className = "glass-panel p-5 rounded-2xl";
+
+              const link = document.createElement("a");
+              link.href = item.link;
+              link.target = "_blank";
+              link.rel = "noopener noreferrer";
+              link.className = "font-bold text-[#02349b] underline text-lg";
+              link.textContent = item.title || item.link;
+
+              const snippet = document.createElement("p");
+              snippet.className = "text-sm text-[#02349b] mt-2 opacity-90";
+              snippet.textContent = item.snippet || "";
+
+              card.append(link, snippet);
+              resultsList.appendChild(card);
+            });
+          } else {
+            resultsList.textContent = "No results found.";
+          }
+        }
+
+        searchInput.value = "";
+      } catch (error) {
+        console.error(error);
+        resultsList.textContent = vexMode
+          ? "Vex couldn't respond. Check that the /api/vex server endpoint is running."
+          : "Error fetching results. Check your Serper setup.";
+      } finally {
+        searchButton.disabled = false;
+      }
     });
 
-    /*
-     * Custom Background
-     */
-    document
-      .getElementById("background-picker")
-      .addEventListener("change", (e) => {
+    document.getElementById("background-picker").addEventListener("change", (event) => {
+      const file = event.target.files[0];
+      if (!file) return;
 
-        const file = e.target.files[0];
-
-        if (!file) return;
-
-        const reader = new FileReader();
-
-        reader.onload = (event) => {
-
-          appShell.style.backgroundImage =
-            `url("${event.target.result}")`;
-
-        };
-
-        reader.readAsDataURL(file);
-
-      });
-
+      const reader = new FileReader();
+      reader.onload = () => {
+        appShell.style.backgroundImage = `url("${reader.result}")`;
+      };
+      reader.readAsDataURL(file);
+    });
   </script>
-
 </body>
 </html>
-```
-
- The supplied image is now the **default full-page background**, and selecting another image will still replace it.
