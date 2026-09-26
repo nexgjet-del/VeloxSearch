@@ -66,21 +66,34 @@
       <div class="flex items-stretch gap-3 mb-6">
         <form id="search-form" class="flex-1 min-w-0">
           <div class="flex gap-2 p-2 bg-white border-2 border-[#02349b] rounded-2xl">
-            <input id="search-query"
+            <input
+              id="search-query"
               class="w-full min-w-0 px-4 py-2 outline-none text-[#02349b] bg-transparent"
-              placeholder="Search the web..." required>
-            <button id="search-submit"
+              placeholder="Search the web..."
+              required
+            >
+            <button
+              id="search-submit"
               class="shrink-0 bg-[#02349b] text-white px-6 py-2 rounded-xl font-bold"
-              type="submit">
+              type="submit"
+            >
               Search
             </button>
           </div>
         </form>
 
-        <button id="vex-toggle" type="button"
+        <button
+          id="vex-toggle"
+          type="button"
           class="shrink-0 w-16 h-16 rounded-2xl overflow-hidden border-2 border-[#02349b] bg-white hover:scale-105 transition-transform"
-          aria-label="Switch to Vex AI" title="Chat with Vex">
-          <img src="Vex ai.png" alt="Open Vex AI" class="w-full h-full object-cover">
+          aria-label="Switch to Vex AI"
+          title="Chat with Vex"
+        >
+          <img
+            src="https://api.deepai.org/chat_attachments/download?uuid=4a8fcbde-1948-4d11-a08b-e1399c04fc7b&amp;purpose=user&amp;token=4a8fcbde-1948-4d11-a08b-e1399c04fc7b%7Cuser%3A1xAUzp%3APu58-W5NuSFvCFaxFwdk06yF4EkQxJflPkY--tFjqmI"
+            alt="Open Vex AI"
+            class="w-full h-full object-cover"
+          >
         </button>
       </div>
 
@@ -93,7 +106,7 @@
   </div>
 
   <script>
-    // Add your Serper key here to enable web search.
+    // Add your Serper key to enable web search.
     // For production, keep this key on a server rather than in browser code.
     const SERPER_API_KEY = "YOUR_SERPER_API_KEY";
 
@@ -133,6 +146,7 @@
 
     searchForm.addEventListener("submit", async (event) => {
       event.preventDefault();
+
       const query = searchInput.value.trim();
       if (!query) return;
 
